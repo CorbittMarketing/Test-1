@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaelan's Burgers - Best Smash Burgers in Edmonton | Since 1998</title>
+    <meta name="description" content="Family-owned smash burger joint on Whyte Ave since 1998. Fresh, never frozen. Edmonton’s best burgers.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a1a1a;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #ff6b35;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1920');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,107,53,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Menu Preview */
+        .menu-preview {
+            padding: 5rem 2rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* Location Section */
+        .location {
+            background: #1a1a1a;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .location h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-details {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hours {
+            background: rgba(255,255,255,0.1);
+            display: inline-block;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .hours h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .hours p {
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">🍔 Kaelan's Burgers</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Edmonton's Best Smash Burgers</h1>
+            <p>Family-owned since 1998 • Whyte Ave's Hidden Gem</p>
+            <a href="#location" class="cta-button">Find Us on Whyte Ave</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>26 Years of Smashing Goodness</h3>
+                    <p>It all started in 1998 when Kaelan fired up a single griddle on Whyte Ave. One simple belief: fresh, never frozen beef smashed thin and seared to perfection.</p>
+                    <p>No fancy toppings. No frozen patties. Just real Alberta beef, smashed on a hot flattop, topped with melted cheese and served on a toasted bun.</p>
+                    <p>Three generations later, we're still smashing burgers the same way. Because when something's this good, you don't mess with it.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800" alt="Chef preparing smash burgers">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview -->
+    <section class="menu-preview" id="menu">
+        <div class="container">
+            <h2 class="section-title">Fan Favorites</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=600" alt="Classic Smash Burger">
+                    <div class="menu-item-content">
+                        <h3>The Original Smash</h3>
+                        <p>Double patty, American cheese, caramelized onions, house sauce</p>
+                        <p class="price">$12.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600" alt="Bacon Burger">
+                    <div class="menu-item-content">
+                        <h3>Bacon Smash Deluxe</h3>
+                        <p>Double patty, crispy bacon, cheddar, BBQ sauce, onion rings</p>
+                        <p class="price">$15.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1561758033-d8f20f8f5d5c?w=600" alt="Mushroom Swiss Burger">
+                    <div class="menu-item-content">
+                        <h3>Mushroom Swiss</h3>
+                        <p>Sautéed mushrooms, Swiss cheese, garlic aioli, arugula</p>
+                        <p class="price">$14.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2>Visit Us on Whyte Ave</h2>
+            <div class="location-details">
+                <p><strong>📍 10423 82 Ave NW, Edmonton, AB</strong></p>
+                <p>Right in the heart of Old Strathcona</p>
+                <p>📞 (780) 555-0198</p>
+            </div>
+            <div class="hours">
+                <h3>Hours</h3>
+                <p>Monday - Thursday: 11am - 10pm</p>
+                <p>Friday - Saturday: 11am - 11pm</p>
+                <p>Sunday: 12pm - 9pm</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kaelan's Burgers. Family-owned since 1998.</p>
+    </footer>
+
+</body>
+</html>
